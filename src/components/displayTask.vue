@@ -1,16 +1,15 @@
 <template>
-  <ul>
-    <li v-for="(item, index) in todolist" :key="index">
-      {{ todo }}
-    </li>
-  </ul>
+  <li>
+    {{ todo }} <button @click="taskList1.splice(index, 1)">supprimer</button>
+  </li>
 </template>
 
-<script setup>
-import { useTask } from "./CreateTask.vue";
-const { todo, todoList } = useTask();
-console.log(todo);
-console.log(todoList);
+<script>
+export default {
+  props: ["todo", "index", "taskList1"],
+
+  methods: {},
+};
 </script>
 
 <style></style>

@@ -4,31 +4,31 @@
       <label for="todo">Nouvelle tache</label>
       <input type="text" name="todo" id="todo" v-model="newTask" />
 
-      <input type="submit" value="Ajouter" />
+      <input type="submit" value="Ajouter" @click="update" />
     </form>
   </div>
 
-  <display-task></display-task>
+  <option-task :taskList1="taskList"></option-task>
+
+  <ul>
+    <display-task
+      v-for="(item, index) in taskList"
+      :key="index"
+      :todo="item"
+      :taskList1="taskList"
+      :index="index"
+      :id="index"
+    >
+    </display-task>
+  </ul>
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
 import displayTask from "./displayTask.vue";
-
-export function useTask() {
-  const todo = ref("0");
-  const todoList = ref([0]);
-
-  function update() {
-    todo.value = this.newTask;
-    todoList.value = this.taskList;
-  }
-
-  return { todo, todoList };
-}
+import OptionTask from "./OptionTask.vue";
 
 export default {
-  components: { displayTask },
+  components: { displayTask, OptionTask },
   data() {
     return {
       newTask: "",
@@ -36,10 +36,22 @@ export default {
     };
   },
 
+  props: {
+    todo: {
+      type: String,
+    },
+    taskList1: {
+      type: Array,
+    },
+    index: {
+      type: String,
+    },
+  },
+
   methods: {
     addTask: function () {
       this.taskList.push(this.newTask);
-      console.log(this.taskList);
+      this.newTask = null;
     },
   },
 };
