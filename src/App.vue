@@ -1,17 +1,13 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <CreateTask></CreateTask>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import CreateTask from "./components/CreateTask.vue";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: { CreateTask },
+};
 </script>
 
 <style>
