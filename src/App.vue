@@ -1,5 +1,8 @@
 <template>
-  <CreateTask></CreateTask>
+  <h1>Ma to-do list VueJs</h1>
+  <div class="container">
+    <CreateTask></CreateTask>
+  </div>
 </template>
 
 <script>
@@ -18,5 +21,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  width: 50vw;
+  padding: 10vw;
 }
 </style>

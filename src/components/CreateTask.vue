@@ -1,14 +1,21 @@
 <template>
-  <div class="wrapper">
-    <form action="" @submit.prevent="addTask">
-      <label for="todo">Nouvelle tache</label>
-      <input type="text" name="todo" id="todo" v-model="newTask" />
+  <!-- Créer une tâche  -->
+  <form action="" @submit.prevent="addTask">
+    <label for="todo">Nouvelle tache</label>
+    <input type="text" name="todo" id="todo" v-model="newTask" />
 
-      <input type="submit" value="Ajouter" @click="update" />
-    </form>
-  </div>
+    <input
+      type="submit"
+      value="Ajouter"
+      @click="update"
+      class="btn btn-success"
+    />
+  </form>
 
-  <option-task :taskList1="taskList"></option-task>
+  <!-- afficher le nombre de Tache + supprimer toute les tâches  -->
+  <p>{{ task }}</p>
+  <option-task :taskList1="taskList" v-if="taskList.length >= 1"></option-task>
+  <!-- Afficher la liste de tâches -->
 
   <ul>
     <display-task
@@ -24,6 +31,7 @@
 </template>
 
 <script>
+import { ref } from "@vue/reactivity";
 import displayTask from "./displayTask.vue";
 import OptionTask from "./OptionTask.vue";
 
@@ -35,7 +43,12 @@ export default {
       taskList: [],
     };
   },
-
+  setup(props) {
+    const task = ref(0);
+    task.value = props.index;
+    console.log(task);
+    return { task };
+  },
   props: {
     todo: {
       type: String,
@@ -57,4 +70,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.btn-success {
+  margin: 2vh;
+}
+</style>
