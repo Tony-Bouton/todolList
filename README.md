@@ -1,19 +1,19 @@
-# todolistcomparadise
+Cette application est une to-do list permettant de lister des tâches à effectuer .
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- Un utilisateur peut :
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Définir une nouvelle tâche
+
+- ajouter cette tâche à la liste de tâches en cours
+
+- Consulter le nombre de tâches en cours
+
+- sélectionner via une checkbox si la tâche est éffectuée ou non
+
+- supprimer une tâche
+
+- supprimer toute les tâches
+
+:)
